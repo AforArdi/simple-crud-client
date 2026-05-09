@@ -1,7 +1,8 @@
 import { Button, Table } from "@heroui/react";
 import Link from "next/link";
+import DeleteAlert from "./DeleteAlert";
 
-const UsersPageTable = ({ users }) => {
+const UsersPageTable = ({ users, DeleteUserAction }) => {
     return (
         <Table>
             <Table.ScrollContainer>
@@ -26,7 +27,9 @@ const UsersPageTable = ({ users }) => {
                                         <Link href={`/users/${user._id}`}>
                                             <Button variant="outline">Edit</Button>
                                         </Link>
-                                        <Button variant="danger">Delete</Button>
+                                        <DeleteAlert user={user}
+                                        DeleteUserAction={DeleteUserAction}
+                                        ></DeleteAlert>
                                     </Table.Cell>
                                 </Table.Row>
                             )
