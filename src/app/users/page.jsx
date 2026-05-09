@@ -1,5 +1,6 @@
+import AddUserModal from "../components/heroUI/AddUserModal";
 import UsersPageTable from "../components/heroUI/UsersPageTable";
-import { DeleteUserAction } from "../lib/actions";
+import { AddUserAction, DeleteUserAction } from "../lib/actions";
 import { getUsers } from "../lib/data";
 
 const UsersPage = async () => {
@@ -7,8 +8,11 @@ const UsersPage = async () => {
     // console.log(users);
 
     return ( 
-        <div className="container mx-auto">
-            <h2 className="text-3xl font-bold">Total Users: {users.length}</h2>
+        <div className="container mx-auto mt-5">
+            <div className="flex items-center justify-between">
+                <h2 className="text-3xl font-bold">Total Users: {users.length}</h2>
+                <AddUserModal AddUserAction={AddUserAction}></AddUserModal>
+            </div>
             <div className="mt-5">
                 <UsersPageTable users={users} DeleteUserAction={DeleteUserAction}></UsersPageTable>
             </div>
